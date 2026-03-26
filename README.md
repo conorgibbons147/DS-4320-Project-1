@@ -60,3 +60,23 @@ This project lives in the domains of social media, cybersecurity, and machine le
 | Improving Social Bot Detection Through Aid and Training | Study on human ability to detect bots, good motivation for why automated detection matters | https://pmc.ncbi.nlm.nih.gov/articles/PMC11382440/ |
 | Integrating Higher-Order Relations for Enhanced Twitter Bot Detection | Research on using behavioral signals like retweets and hashtags for detection, directly relevant to your features | https://link.springer.com/article/10.1007/s13278-024-01372-0 |
 | BotArtist: Generic Approach for Bot Detection via Semi-Automatic Methods | Covers lightweight feature-based detection without requiring heavy API access, closest to your approach | https://arxiv.org/pdf/2306.00037 |
+
+## Data Creation
+
+### Provenance
+The raw data for this project was sourced from Kaggle. The dataset, titled 
+"Twitter Bot Detection Dataset", was downloaded as a single CSV file named 
+`bot_detection_dataset.csv`. It contains 11 features capturing both account-level 
+metadata and tweet-level behavior signals for a collection of Twitter accounts, 
+each labeled as either a bot or a human. The dataset was collected from the 
+Twitter platform and includes attributes such as follower count, verified status, 
+tweet content, retweet count, mention count, hashtags, location, and account 
+creation timestamp.
+
+The raw CSV was ingested into a Jupyter notebook where it was processed into a 
+fully normalized relational dataset consisting of four tables: `users`, `tweets`, 
+`hashtags`, and `locations`. No external APIs were used in the data acquisition 
+process. The original CSV is preserved in the `data/raw/` directory of this 
+repository as the unmodified source of record, and all transformations applied 
+to produce the final tables are documented and reproducible via the pipeline 
+notebook.
