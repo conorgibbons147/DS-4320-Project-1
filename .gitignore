@@ -4,3 +4,8 @@ venv
 *.zip
 .zip
 .csv
+
+*.parquet
+.parquet
+
+/processed_data
