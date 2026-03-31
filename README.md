@@ -4,9 +4,13 @@
 
 **NetID:** hjd3db
 
+**Data:** https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa
+
 ### Executive Summary
 
-...
+This repository contains a fully established secondary dataset and machine learning pipeline for detecting bot accounts on Twitter. The dataset is derived from the Cresci-2017 benchmark and normalized into a relational schema of four tables:
+users, tweets, hashtags, and locations. Files are stored in parquet format. An XGBoost classifier is trained on behavioral features aggregated with DuckDB, achieving 92% accuracy and a ROC AUC of 0.9484 when distinguishing fake follower bot accounts 
+from genuine human accounts using just tweet-level engagement features. All data processing, modeling, and visualization code is documented in the pipeline notebook and the full dataset is available via the linked UVA OneDrive folder.
 
 ## Problem Definition
 
@@ -154,14 +158,14 @@ erDiagram
 | users | listed_count | integer | Number of public lists this account appears on | 14 |
 | users | verified | boolean | Whether the account is verified by Twitter | True |
 | users | lang | string | Language setting of the account | en |
-| users | description | string | Bio text from the account profile | Data scientist based in NYC |
+| users | description | string | Bio text from the account profile | Data scientist based in Charlottesville |
 | users | created_at | string | Date and time the account was created | 2012-03-15 08:22:11 |
 | users | bot_label | integer | Ground truth label indicating bot (1) or human (0) | 0 |
-| users | location | string | Self-reported location from the account profile | New York, USA |
+| users | location | string | Self-reported location from the account profile | Charlottesville, USA |
 | users | location_id | integer | Foreign key linking to the locations table | 42 |
 | tweets | tweet_id | integer | Unique identifier for each tweet | 987654321 |
 | tweets | user_id | integer | Foreign key linking to the users table | 123456789 |
-| tweets | text | string | Full text content of the tweet | Excited to announce our new project! |
+| tweets | text | string | Full text content of the tweet | Working on a project for DS4320 |
 | tweets | retweet_count | integer | Number of times the tweet has been retweeted | 45 |
 | tweets | reply_count | integer | Number of replies the tweet received | 12 |
 | tweets | favorite_count | integer | Number of times the tweet has been liked | 203 |
@@ -171,6 +175,22 @@ erDiagram
 | tweets | created_at | string | Date and time the tweet was posted | 2014-06-21 14:33:07 |
 | hashtags | hashtag_id | integer | Unique identifier for each hashtag occurrence | 1 |
 | hashtags | tweet_id | integer | Foreign key linking to the tweets table | 987654321 |
-| hashtags | hashtag | string | Hashtag text extracted from the tweet | #machinelearning |
-| locations | location_id | integer | Unique identifier for each unique location | 42 |
-| locations | location | string | Self-reported location string from user profile | New York, USA |
+| hashtags | hashtag | string | Hashtag text extracted from the tweet | #design |
+| locations | location_id | integer | Unique identifier for each unique location | 12 |
+| locations | location | string | Self-reported location string from user profile | Charlottesville, USA |
+
+### Quantification of Uncertainty
+
+| Table | Feature | Min | Max | Mean | Std Dev | Uncertainty Notes |
+|-------|---------|-----|-----|------|---------|-------------------|
+| users | statuses_count | 3 | 399,555 | 13,441 | 27,996 | Very high std dev relative to mean indicates extreme outliers; bots may post at abnormally high rates inflating the upper bound |
+| users | followers_count | 0 | 986,837 | 1,480 | 15,262 | Extremely high std dev indicates heavy skew; a small number of accounts have massive followings, making this an unreliable mean |
+| users | friends_count | 0 | 46,310 | 904 | 2,097 | Moderate uncertainty; some bots follow thousands of accounts to appear legitimate, pulling the distribution right |
+| users | favourites_count | 0 | 313,954 | 3,668 | 10,389 | High variance; automated liking behavior in bots produces extreme outliers far above the mean |
+| users | listed_count | 0 | 6,166 | 16 | 140 | Very high std dev relative to mean; median of 2 suggests most accounts are rarely listed, extreme values are outliers |
+| tweets | retweet_count | 0 | 3,350,111 | 541 | 13,367 | Extremely high variance; median of 0 indicates most tweets get no retweets, coordinated bot campaigns produce massive outliers |
+| tweets | reply_count | 0 | 0 | 0 | 0 | No reply data present in this dataset; feature carries no signal and should be excluded from modeling |
+| tweets | favorite_count | -1 | 4,278 | 0.75 | 5.52 | Note negative minimum indicates a data quality issue; median of 0 with low mean suggests most tweets receive no likes |
+| tweets | num_hashtags | 0 | 28 | 0.19 | 0.65 | Low uncertainty; median of 0 with low std dev makes this a relatively clean and reliable feature |
+| tweets | num_urls | 0 | 5 | 0.12 | 0.33 | Low uncertainty; tightly bounded range makes this a reliable and stable feature for classification |
+| tweets | num_mentions | 0 | 19 | 0.51 | 0.80 | Low uncertainty; bounded range and reasonable std dev make this one of the more reliable numerical features |

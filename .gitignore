@@ -2,10 +2,17 @@
 venv
 
 *.zip
-.zip
-.csv
+*.zip
+*.csv
 
 *.parquet
 .parquet
 
-/processed_data
+logs/*.log
+
+/raw_data
+
+*.db
+*.db.wal
+
+/pipeline/pipeline_files
