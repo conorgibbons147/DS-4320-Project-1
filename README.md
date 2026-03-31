@@ -1,10 +1,27 @@
 # DS 4320 Project 1: Detecting Bot Accounts on Twitter
 
+## Table of Contents
+- [Executive Summary](#executive-summary)
+- [Problem Definition](#problem-definition)
+- [Domain Exposition](#domain-exposition)
+- [Data Creation](#data-creation)
+- [Metadata](#metadata)
+- [Data](#data)
+- [License](#license)
+  
+## Pipeline
+- [pipeline.ipynb](pipeline/pipeline.ipynb)
+- [pipeline.md](pipeline/pipeline.md)
+
 **Name:** Conor Gibbons
 
 **NetID:** hjd3db
 
-**Data:** https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa
+### Data
+**Link to data:** https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa
+
+### License
+MIT License — see [LICENSE](LICENSE)
 
 ### Executive Summary
 
@@ -30,9 +47,9 @@ labeled data is publicly available. By constraining the problem to Twitter speci
 The project was motivated by the growing concern that bots present to social media. In the age of AI, bots on social media will become harder to detect as their patterns more accurately mimic humans. These bots can cause widespread damage for a platform including spreading misinformation, 
 manipulating trends, and amplifying political messages at a large scale. The ability to automatically detect bot accounts is therefore critical for platforms to mitigate the influence of automated accounts on public opinion. Manual detection is impossible at such a large scale, so a machine learning classifier trained on behavior and account signals offers a scalable solution.
 
-### Press Release Headline
+### Press Release
 
-...
+[**Can a Classifier Tell the Difference Between a Real Person and a Bot on X (Twitter)?**](press-release.md)
 
 ## Domain Exposition
 
@@ -139,10 +156,10 @@ erDiagram
 
 | Table | Description | Link |
 |-------|-------------|------|
-| `users` | One row per Twitter account containing account metadata and bot label | [users.parquet](processed_data/users.parquet) |
-| `tweets` | One row per tweet containing tweet content and engagement metrics | [tweets.parquet](processed_data/tweets.parquet) |
-| `hashtags` | One row per hashtag per tweet extracted from tweet text | [hashtags.parquet](processed_data/hashtags.parquet) |
-| `locations` | Lookup table of unique user locations | [locations.parquet](processed_data/locations.parquet) |
+| `users` | One row per Twitter account containing account metadata and bot label | [users.parquet](https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa) |
+| `tweets` | One row per tweet containing tweet content and engagement metrics | [tweets.parquet](https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa) |
+| `hashtags` | One row per hashtag per tweet extracted from tweet text | [hashtags.parquet](https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa) |
+| `locations` | Lookup table of unique user locations | [locations.parquet](https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa) |
 
 ### Features
 

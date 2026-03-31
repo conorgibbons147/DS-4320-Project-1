@@ -16,3 +16,9 @@ logs/*.log
 *.db.wal
 
 /pipeline/pipeline_files
+
+logs/*
+!logs/.gitkeep
+
+processed_data/*
+!processed_data/.gitkeep
