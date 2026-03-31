@@ -76,11 +76,11 @@ This project lives in the domains of social media, cybersecurity, and machine le
 ### Background Reading
 | Title | Description | Link |
 |-------|-------------|------|
-| Online Human-Bot Interactions: Detection, Estimation, and Characterization (Varol et al., 2017) | The foundational paper in Twitter bot detection. Introduces the BotOrNot framework, estimates 9-15% of active Twitter accounts are bots, and establishes the feature categories used in nearly all subsequent work | https://arxiv.org/pdf/1703.03107 |
-| Twitter Bot Detection Using Diverse Content Features and Applying Machine Learning Algorithms | Academic paper covering feature-based ML approaches to bot detection including account metadata and content features | https://www.mdpi.com/2071-1050/15/8/6662 |
-| Improving Social Bot Detection Through Aid and Training | Study on human ability to detect bots, good motivation for why automated detection matters | https://pmc.ncbi.nlm.nih.gov/articles/PMC11382440/ |
-| Integrating Higher-Order Relations for Enhanced Twitter Bot Detection | Research on using behavioral signals like retweets and hashtags for detection, directly relevant to your features | https://link.springer.com/article/10.1007/s13278-024-01372-0 |
-| BotArtist: Generic Approach for Bot Detection via Semi-Automatic Methods | Covers lightweight feature-based detection without requiring heavy API access, closest to your approach | https://arxiv.org/pdf/2306.00037 |
+| Online Human-Bot Interactions: Detection, Estimation, and Characterization (Varol et al., 2017) | The foundational paper in Twitter bot detection. Introduces the BotOrNot framework, estimates 9-15% of active Twitter accounts are bots, and establishes the feature categories used in nearly all subsequent work | [Link](/background_reading/1703.03107v2.pdf) |
+| Twitter Bot Detection Using Diverse Content Features and Applying Machine Learning Algorithms | Academic paper covering feature-based ML approaches to bot detection including account metadata and content features | [Link](/background_reading/sustainability-15-06662.pdf) |
+| Improving Social Bot Detection Through Aid and Training | Study on human ability to detect bots, good motivation for why automated detection matters | [Link](/background_reading/10.1177_00187208231210145.pdf) |
+| Integrating Higher-Order Relations for Enhanced Twitter Bot Detection | Research on using behavioral signals like retweets and hashtags for detection, directly relevant to your features | [Link](/background_reading/s13278-024-01372-0.pdf) |
+| BotArtist: Generic Approach for Bot Detection via Semi-Automatic Methods | Covers lightweight feature-based detection without requiring heavy API access, closest to your approach | [Link](/background_reading/2306.00037v5.pdf) |
 
 ## Data Creation
 
