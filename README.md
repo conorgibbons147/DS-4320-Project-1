@@ -17,6 +17,10 @@
 
 **NetID:** hjd3db
 
+### DOI
+
+[![DOI](https://zenodo.org/badge/1192153385.svg)](https://doi.org/10.5281/zenodo.19358249)
+
 ### Data
 **Link to data:** https://myuva-my.sharepoint.com/:f:/g/personal/hjd3db_virginia_edu/IgCbensBZpozQ6o0jRvlFr0MAQKo0C5eOomO5s6pns5KOT4?e=htaiRa
 
